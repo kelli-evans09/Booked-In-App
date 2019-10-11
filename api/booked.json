@@ -1,0 +1,59 @@
+{
+    "users": [
+{
+    "username": "kevans",
+    "password": "123",
+    "name": "Kelli Evans",
+    "coNumber": "27"
+},
+{
+    "username": "kmccourt",
+    "password": "123",
+    "name": "Keira McCourt",
+    "coNumber": "28"
+},
+{
+    "username": "mwood",
+    "password": "123",
+    "name": "Mony Wood",
+    "coNumber": "05"
+}
+
+    ],
+    "inmates": [
+        {
+            "bookingNumber": "",
+            "name": "",
+            "arrestingAgency": "",
+            "dateIn": "",
+            "dateOut": "",
+            "userId": "",
+            "comments": "",
+            "status": "",
+            "billed": ""
+        },
+        {
+            "bookingNumber": "",
+            "name": "",
+            "arrestingAgency": "",
+            "dateIn": "",
+            "dateOut": "",
+            "userId": "",
+            "comments": "",
+            "status": "",
+            "billed": ""
+        },
+        {
+            "bookingNumber": "",
+            "name": "",
+            "arrestingAgency": "",
+            "dateIn": "",
+            "dateOut": "",
+            "userId": "",
+            "comments": "",
+            "status": "",
+            "billed": ""
+        }
+
+    ]
+}

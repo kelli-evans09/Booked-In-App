@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css?family=Turret+Road&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Cinzel&display=swap');
+
+small {
+    font-size: 75%;
+  }
+
+  header {
+    background-color: black;
+    border: #abd2fa solid 3px;
+  }
+
+  .site-title {
+    color: ghostwhite;
+    font-family: 'Cinzel' , serif;
+    text-align: center;
+  }
+
+  nav .container {
+    display: flex;
+    padding: 0;
+    margin-bottom: 0;
+  }
+
+  nav .container li {
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+    font-size: 1.5em;
+    color: #af0104;
+    box-sizing: border-box;
+    background-color: #1f32dd;
+    list-style-type: none;
+  }
+
+  nav .container a {
+    color: white;
+  }
+
+  nav .container a:hover {
+    color: #af0104;
+  }
