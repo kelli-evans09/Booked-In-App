@@ -13,10 +13,10 @@ class NavBar extends Component {
         </h1>
         <nav>
           <ul className="container">
-            <li><Link className="nav-link" to="/">Home</Link></li>
+            <li><Link className="nav-link" to="/home">Home</Link></li>
             <li><Link className="nav-link" to="/inmates">Inmate List</Link></li>
-            <li><Link className="nav-link" to="/">Add New Inmate</Link></li>
-            <li><Link className="nav-link" to="/">Search</Link></li>
+            <li><Link className="nav-link" to="/inmates/new">Add New Inmate</Link></li>
+            <li><Link className="nav-link" to="/inmates/search">Search</Link></li>
           </ul>
         </nav>
       </header>

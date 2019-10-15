@@ -5,7 +5,7 @@ import MPD from "./MPD.jpg"
 class Home extends Component {
   render() {
     return (
-      <address class="mpd-info">
+      <address className="mpd-info">
         <br />
         <h1>Middleport Police Department</h1>
         <h3>
@@ -15,7 +15,7 @@ class Home extends Component {
           <br /> Established in 2012
           <br /> Max hold: 8 males, 8 females
         </h3>
-        <img src={MPD} alt="MPD Image" />
+        <img src={MPD} alt="MPD" />
       </address>
 
 

@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import NavBar from "./nav/NavBar"
 import ApplicationViews from "./ApplicationViews"
 import "./Booked.css"
-import {Router} from 'react-router-dom';
+// import {Router} from 'react-router-dom';
 
 
 class Booked extends Component {

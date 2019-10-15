@@ -1,59 +1,129 @@
 {
-    "users": [
-{
-    "username": "kevans",
-    "password": "123",
-    "name": "Kelli Evans",
-    "coNumber": "27"
-},
-{
-    "username": "kmccourt",
-    "password": "123",
-    "name": "Keira McCourt",
-    "coNumber": "28"
-},
-{
-    "username": "mwood",
-    "password": "123",
-    "name": "Mony Wood",
-    "coNumber": "05"
-}
-
-    ],
-    "inmates": [
-        {
-            "bookingNumber": "",
-            "name": "",
-            "arrestingAgency": "",
-            "dateIn": "",
-            "dateOut": "",
-            "userId": "",
-            "comments": "",
-            "status": "",
-            "billed": ""
-        },
-        {
-            "bookingNumber": "",
-            "name": "",
-            "arrestingAgency": "",
-            "dateIn": "",
-            "dateOut": "",
-            "userId": "",
-            "comments": "",
-            "status": "",
-            "billed": ""
-        },
-        {
-            "bookingNumber": "",
-            "name": "",
-            "arrestingAgency": "",
-            "dateIn": "",
-            "dateOut": "",
-            "userId": "",
-            "comments": "",
-            "status": "",
-            "billed": ""
-        }
-
-    ]
+  "officers": [
+    {
+      "id": 1,
+      "username": "kevans",
+      "password": "123",
+      "name": "Kelli Evans",
+      "coNumber": "27"
+    },
+    {
+      "id": 2,
+      "username": "kmccourt",
+      "password": "123",
+      "name": "Keira McCourt",
+      "coNumber": "28"
+    },
+    {
+      "id": 3,
+      "username": "mwood",
+      "password": "123",
+      "name": "Mony Wood",
+      "coNumber": "05"
+    }
+  ],
+  "inmates": [
+    {
+      "id": 1,
+      "name": "Jordan Castelloe",
+      "bookingNumber": "19-001",
+      "arrestingAgency": "MPD",
+      "dateIn": "2019-01-01",
+      "releasingOfficer": "Evans",
+      "dateOut": "2019-01-10",
+      "comments": "Released per court",
+      "billed": "Yes",
+      "archived": false
+    },
+    {
+      "id": 2,
+      "name": "Joshua Joseph",
+      "bookingNumber": "19-002",
+      "arrestingAgency": "MPD",
+      "dateIn": "2019-01-02",
+      "releasingOfficer": "McCourt",
+      "dateOut": "2019-01-14",
+      "comments": "Bond paid",
+      "billed": "Yes",
+      "archived": false
+    },
+    {
+      "id": 3,
+      "bookingNumber": "19-003",
+      "name": "Tommy Spurlock",
+      "dateIn": "2019-01-03",
+      "arrestingAgency": "MPD",
+      "dateOut": "",
+      "officerId": "",
+      "comments": "",
+      "billed": "No",
+      "archived": false
+    },
+    {
+      "name": "Jacob Perry",
+      "bookingNumber": "19-004",
+      "arrestingAgency": "MPD",
+      "dateIn": "2019-01-04",
+      "releasingOfficer": "",
+      "dateOut": "",
+      "comments": "",
+      "billed": "",
+      "id": 4,
+      "archived": false
+    },
+    {
+      "id": 5,
+      "name": "Ryan Clay",
+      "bookingNumber": "19-005",
+      "arrestingAgency": "MPD",
+      "dateIn": "2019-01-05",
+      "releasingOfficer": "",
+      "dateOut": "",
+      "comments": "",
+      "billed": "",
+      "archived": false
+    },
+    {
+      "id": 6,
+      "name": "Jennifer Johnson",
+      "bookingNumber": "19-006",
+      "arrestingAgency": "MPD",
+      "dateIn": "2019-01-07",
+      "releasingOfficer": "Evans",
+      "dateOut": "2019-01-17",
+      "comments": "Released per MP-05",
+      "billed": "No",
+      "archived": false
+    },
+    {
+      "name": "Caleb Meadows",
+      "bookingNumber": "19-007",
+      "arrestingAgency": "MPD",
+      "dateIn": "2019-01-09",
+      "releasingOfficer": "Wood",
+      "dateOut": "2019-01-19",
+      "comments": "Released from court",
+      "billed": "No",
+      "archived": false,
+      "id": 7
+    }
+  ],
+  "arrestingAgencies": [
+    {
+      "id": 1,
+      "name": "MPD"
+    },
+    {
+      "id": 2,
+      "name": "MCSO"
+    },
+    {
+      "id": 3,
+      "name": "ACSO"
+    },
+    {
+      "id": 4,
+      "name": "PPD"
+    }
+  ]
 }
