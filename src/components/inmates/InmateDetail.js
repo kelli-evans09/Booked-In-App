@@ -6,7 +6,7 @@ class InmateDetail extends Component {
   state = {
     name: "",
     bookingNumber: "",
-    arrestingAgency: "",
+    arrestingAgencyId: "",
     dateIn: "",
     officerId: "",
     dateOut: "",
@@ -14,6 +14,7 @@ class InmateDetail extends Component {
     billed: "",
     archived: "",
     officers: [],
+    arrestingAgencies: [],
     loadingStatus: true
   };
 
@@ -32,7 +33,7 @@ class InmateDetail extends Component {
       this.setState({
         name: inmate.name,
         bookingNumber: inmate.bookingNumber,
-        arrestingAgency: inmate.arrestingAgency,
+        arrestingAgencyId: inmate.arrestingAgencyId,
         dateIn: inmate.dateIn,
         officerId: inmate.officerId,
         dateOut: inmate.dateOut,
@@ -51,7 +52,7 @@ class InmateDetail extends Component {
       id: this.props.match.params.inmateId,
       name: this.state.name,
       bookingNumber: this.state.bookingNumber,
-      arrestingAgency: this.state.arrestingAgency,
+      arrestingAgencyId: this.state.arrestingAgencyId,
       dateIn: this.state.dateIn,
       officerId: this.state.officerId,
       dateOut: this.state.dateOut,
@@ -75,7 +76,7 @@ class InmateDetail extends Component {
             <span style={{ color: "darkslategrey" }}>{this.state.name}</span>
           </h3>
 
-          <h3>Arresting Agency: {this.state.arrestingAgency}</h3>
+          <h3>Arresting Agency: {this.state.arrestingAgencyId}</h3>
 
           <h3>Date In: {this.state.dateIn}</h3>
 

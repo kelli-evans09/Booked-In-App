@@ -14,7 +14,7 @@ class InmateCard extends Component {
           </h3>
           <h3>Date In: {this.props.inmateProp.dateIn}</h3>
 
-          <h3>Arresting Agency: {this.props.inmateProp.arrestingAgency}</h3>
+          <h3>Arresting Agency: {this.props.inmateProp.arrestingAgencyId}</h3>
 
           {/* <p>Date Out: {this.props.inmateProp.dateOut}</p>
 

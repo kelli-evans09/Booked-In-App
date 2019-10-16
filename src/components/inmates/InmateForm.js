@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import InmateManager from "../modules/InmateManager";
 import OfficerManager from "../modules/OfficerManager";
+import ArrestingAgencyManager from "../modules/ArrestingAgencyManager";
 
 class InmateForm extends Component {
   state = {
     name: "",
     bookingNumber: "",
-    arrestingAgency: "",
+    arrestingAgencyId: "",
     dateIn: "",
     officerId: "",
     dateOut: "",
@@ -14,12 +15,18 @@ class InmateForm extends Component {
     billed: "",
     archived: false,
     officers: [],
+    arrestingAgencies: [],
     loadingStatus: false
   };
 
   componentDidMount() {
     OfficerManager.getAll().then(parsedOfficers => {
-      this.setState({ officers: parsedOfficers });
+      ArrestingAgencyManager.getAll().then(parsedArrestingAgencies => {
+        this.setState({
+          officers: parsedOfficers,
+          arrestingAgencies: parsedArrestingAgencies
+        });
+      });
     });
   }
 
@@ -36,7 +43,7 @@ class InmateForm extends Component {
     if (
       this.state.name === "" ||
       this.state.bookingNumber === "" ||
-      this.state.arrestingAgency === "" ||
+      this.state.arrestingAgencyId === "" ||
       this.state.dateIn === ""
     ) {
       window.alert(
@@ -47,7 +54,7 @@ class InmateForm extends Component {
       const inmate = {
         name: this.state.name,
         bookingNumber: this.state.bookingNumber,
-        arrestingAgency: this.state.arrestingAgency,
+        arrestingAgencyId: this.state.arrestingAgencyId,
         dateIn: this.state.dateIn,
         officerId: this.state.officerId,
         dateOut: this.state.dateOut,
@@ -95,14 +102,22 @@ class InmateForm extends Component {
               <br />
               <br />
               {/* This will change to a <select> tab */}
-              <label htmlFor="arrestingAgency">Arresting Agency </label>
-              <input
-                type="text"
-                required
+              <label htmlFor="arrestingAgencyId">Arresting Agency </label>
+              <select
+                className="form-control"
+                id="arrestingAgencyId"
+                value={this.state.arrestingAgencyId}
                 onChange={this.handleFieldChange}
-                id="arrestingAgency"
-                value={this.state.arrestingAgency}
-              />
+              >
+                {this.state.arrestingAgencies.map(arrestingAgency => (
+                  <option
+                    key={arrestingAgency.id.name}
+                    value={arrestingAgency.id.name}
+                  >
+                    {arrestingAgency.name}
+                  </option>
+                ))}
+              </select>
               <br />
               <br />
               <label htmlFor="dateIn">Intake Date </label>
@@ -129,18 +144,6 @@ class InmateForm extends Component {
                   </option>
                 ))}
               </select>
-              {/* <select
-                className="form-control"
-                id="officerId"
-                value={this.state.officerId}
-                onChange={this.handleFieldChange}
-              >
-                {this.state.officers.map(officer => (
-                  <option key={officer.id} value={officer.id}>
-                    {officer.name}
-                  </option>
-                ))}
-              </select> */}
               <br />
               <br />
               <label htmlFor="dateOut">Release Date </label>
