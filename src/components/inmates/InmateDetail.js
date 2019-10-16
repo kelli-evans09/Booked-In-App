@@ -8,11 +8,12 @@ class InmateDetail extends Component {
     bookingNumber: "",
     arrestingAgency: "",
     dateIn: "",
-    releasingOfficer: "",
+    officerId: "",
     dateOut: "",
     comments: "",
     billed: "",
     archived: "",
+    officers: [],
     loadingStatus: true
   };
 
@@ -33,7 +34,7 @@ class InmateDetail extends Component {
         bookingNumber: inmate.bookingNumber,
         arrestingAgency: inmate.arrestingAgency,
         dateIn: inmate.dateIn,
-        releasingOfficer: inmate.releasingOfficer,
+        officerId: inmate.officerId,
         dateOut: inmate.dateOut,
         comments: inmate.comments,
         billed: inmate.billed,
@@ -52,7 +53,7 @@ class InmateDetail extends Component {
       bookingNumber: this.state.bookingNumber,
       arrestingAgency: this.state.arrestingAgency,
       dateIn: this.state.dateIn,
-      releasingOfficer: this.state.releasingOfficer,
+      officerId: this.state.officerId,
       dateOut: this.state.dateOut,
       comments: this.state.comments,
       billed: this.state.billed,
@@ -78,7 +79,7 @@ class InmateDetail extends Component {
 
           <h3>Date In: {this.state.dateIn}</h3>
 
-          <h3>Releasing Officer: {this.state.releasingOfficer}</h3>
+          <h3>Releasing Officer: {this.state.officerId}</h3>
 
           <h3>Date Out: {this.state.dateOut}</h3>
 

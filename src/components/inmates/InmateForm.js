@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import InmateManager from "../modules/InmateManager";
+import OfficerManager from "../modules/OfficerManager";
 
 class InmateForm extends Component {
   state = {
@@ -7,19 +8,20 @@ class InmateForm extends Component {
     bookingNumber: "",
     arrestingAgency: "",
     dateIn: "",
-    releasingOfficer: "",
+    officerId: "",
     dateOut: "",
     comments: "",
     billed: "",
     archived: false,
+    officers: [],
     loadingStatus: false
   };
 
-  // componentDidMount() {
-  //   EmployeeManager.getAll().then(parsedEmployees => {
-  //     this.setState({ employees: parsedEmployees});
-  //   });
-  // }
+  componentDidMount() {
+    OfficerManager.getAll().then(parsedOfficers => {
+      this.setState({ officers: parsedOfficers });
+    });
+  }
 
   handleFieldChange = evt => {
     const stateToChange = {};
@@ -47,11 +49,11 @@ class InmateForm extends Component {
         bookingNumber: this.state.bookingNumber,
         arrestingAgency: this.state.arrestingAgency,
         dateIn: this.state.dateIn,
-        releasingOfficer: this.state.releasingOfficer,
+        officerId: this.state.officerId,
         dateOut: this.state.dateOut,
         comments: this.state.comments,
         billed: this.state.billed,
-        archived: false,
+        archived: false
 
         //change to a number use + before "this.state"
       };
@@ -66,8 +68,8 @@ class InmateForm extends Component {
   render() {
     return (
       <>
-      <br />
-      <br />
+        <br />
+        <br />
         <form>
           <fieldset>
             <div className="formgrid">
@@ -113,15 +115,32 @@ class InmateForm extends Component {
               />
               <br />
               <br />
-              {/* This will change to a <select> tab */}
-              <label htmlFor="releasingOfficer">Releasing Officer </label>
-              <input
-                type="text"
-                required
+              {/* Officer ID dropdown menu goes here */}
+              <label htmlFor="officerId">Releasing Officer </label>
+              <select
+                className="form-control"
+                id="officerId"
+                value={this.state.officerId}
                 onChange={this.handleFieldChange}
-                id="releasingOfficer"
-                value={this.state.releasingOfficer}
-              />
+              >
+                {this.state.officers.map(officer => (
+                  <option key={officer.id} value={officer.id.name}>
+                    {officer.name}
+                  </option>
+                ))}
+              </select>
+              {/* <select
+                className="form-control"
+                id="officerId"
+                value={this.state.officerId}
+                onChange={this.handleFieldChange}
+              >
+                {this.state.officers.map(officer => (
+                  <option key={officer.id} value={officer.id}>
+                    {officer.name}
+                  </option>
+                ))}
+              </select> */}
               <br />
               <br />
               <label htmlFor="dateOut">Release Date </label>
@@ -155,30 +174,6 @@ class InmateForm extends Component {
               />
               <br />
               <br />
-              {/* <select
-                className="form-control"
-                id="releasingOfficer"
-                value={this.state.releasingOfficer}
-                onChange={this.handleFieldChange}
-              >
-                {this.state.officers.map(officer => (
-                  <option key={officer.id} value={officer.id}>
-                    {officer.name}
-                  </option>
-                ))}
-              </select> */}
-              {/* <select
-                className="form-control"
-                id="employeeId"
-                value={this.state.employeeId}
-                onChange={this.handleFieldChange}
-              >
-                {this.state.employees.map(employee => (
-                  <option key={employee.id} value={employee.id}>
-                    {employee.name}
-                  </option>
-                ))}
-              </select> */}
             </div>
             <div className="alignRight">
               <button

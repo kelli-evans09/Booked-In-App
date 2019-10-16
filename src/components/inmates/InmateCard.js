@@ -18,7 +18,7 @@ class InmateCard extends Component {
 
           {/* <p>Date Out: {this.props.inmateProp.dateOut}</p>
 
-          <p>Officer: {this.props.inmateProp.releasingOfficer}</p>
+          <p>Officer: {this.props.inmateProp.officerId}</p>
 
           <p>Comments: {this.props.inmateProp.comments}</p>
 
