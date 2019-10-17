@@ -9,6 +9,10 @@ export default {
     return fetch(`${remoteURL}/inmates`).then(result => result.json());
   },
 
+  searchByValues(search) {
+    return fetch(`${remoteURL}/inmates?q=${search}`)
+  },
+
   softDelete(id) {
     return fetch(`${remoteURL}/inmates/${id}`, {
       method: "PATCH",

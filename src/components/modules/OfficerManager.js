@@ -8,6 +8,7 @@ export default {
     return fetch(`${remoteURL}/officers`).then(result => result.json());
   },
 
+  // Don't actually need this yet
   softDelete(id) {
     return fetch(`${remoteURL}/officers/${id}`, {
       method: "PATCH",

@@ -96,6 +96,7 @@ class InmateDetail extends Component {
             >
               Back
             </button>
+            <button type="button" disabled={this.state.loadingStatus} onClick={this.handleDelete}>Delete Entry</button>
           </div>
         </div>
       </div>

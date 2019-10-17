@@ -16,14 +16,6 @@ class InmateCard extends Component {
 
           <h3>Arresting Agency: {this.props.inmateProp.arrestingAgencyId}</h3>
 
-          {/* <p>Date Out: {this.props.inmateProp.dateOut}</p>
-
-          <p>Officer: {this.props.inmateProp.officerId}</p>
-
-          <p>Comments: {this.props.inmateProp.comments}</p>
-
-          <p>Billed: {this.props.inmateProp.billed}</p> */}
-
           <Link to={`/inmates/${this.props.inmateProp.id}`}>
             <button>Details</button>
           </Link>
@@ -31,9 +23,6 @@ class InmateCard extends Component {
           <Link to={`/inmates/${this.props.inmateProp.id}/edit`}>
             <button>Edit</button>
           </Link>
-          {/* <Link to={`/inmates/${this.props.inmateProp.id}/edit`}>
-            <button>Edit</button>
-          </Link> */}
         </div>
       </div>
     );

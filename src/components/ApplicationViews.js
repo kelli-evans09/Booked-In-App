@@ -5,10 +5,12 @@ import InmateForm from "./inmates/InmateForm";
 import InmateDetail from "./inmates/InmateDetail";
 import InmateEditForm from "./inmates/InmateEditForm";
 import InmateList from "./inmates/InmateList";
+import InmateSearchForm from "./inmates/InmateSearchForm";
 import Login from "./auth/Login";
+import Logout from "./auth/Logout";
 
 class ApplicationViews extends Component {
-  isAuthenticated = () => localStorage.getItem("credentials") !== null;
+  isAuthenticated = () => localStorage.getItem("userId") !== null;
 
   render() {
     return (
@@ -42,6 +44,16 @@ class ApplicationViews extends Component {
           }}
         />
         <Route
+          path="/inmates/search"
+          render={props => {
+            return this.isAuthenticated() ? (
+              <InmateSearchForm {...props} />
+            ) : (
+              <Redirect to="/login" />
+            );
+          }}
+        />
+        <Route
           exact
           path="/inmates/:inmateId(\d+)"
           render={props => {
@@ -59,8 +71,14 @@ class ApplicationViews extends Component {
         <Route
           path="/inmates/:inmateId(\d+)/edit"
           render={props => {
-            return <InmateEditForm
-            {...props} />;
+            return <InmateEditForm {...props} />;
+          }}
+        />
+        <Route
+          exact
+          path="/logout"
+          render={props => {
+            return <Logout {...props} />;
           }}
         />
         <Route path="/login" component={Login} />
