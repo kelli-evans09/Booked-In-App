@@ -10,7 +10,9 @@ export default {
   },
 
   searchByValues(search) {
-    return fetch(`${remoteURL}/inmates?q=${search}`)
+    return fetch(`${remoteURL}/inmates?q=${search}`).then(result =>
+      result.json()
+    );
   },
 
   softDelete(id) {

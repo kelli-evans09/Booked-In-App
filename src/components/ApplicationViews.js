@@ -44,16 +44,6 @@ class ApplicationViews extends Component {
           }}
         />
         <Route
-          path="/inmates/search"
-          render={props => {
-            return this.isAuthenticated() ? (
-              <InmateSearchForm {...props} />
-            ) : (
-              <Redirect to="/login" />
-            );
-          }}
-        />
-        <Route
           exact
           path="/inmates/:inmateId(\d+)"
           render={props => {
@@ -72,6 +62,16 @@ class ApplicationViews extends Component {
           path="/inmates/:inmateId(\d+)/edit"
           render={props => {
             return <InmateEditForm {...props} />;
+          }}
+        />
+                <Route
+          path="/inmates/search"
+          render={props => {
+            return this.isAuthenticated() ? (
+              <InmateSearchForm {...props} />
+            ) : (
+              <Redirect to="/login" />
+            );
           }}
         />
         <Route
