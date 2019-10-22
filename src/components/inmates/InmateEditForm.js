@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import InmateManager from "../modules/InmateManager";
 import OfficerManager from "../modules/OfficerManager";
-import ArrestingAgencyManager from "../modules/ArrestingAgencyManager"
-// import "./InmateForm.css"
+import ArrestingAgencyManager from "../modules/ArrestingAgencyManager";
+import "../inmates/InmateForm.css";
 
 class InmateEditForm extends Component {
   //set the initial state
@@ -52,33 +52,35 @@ class InmateEditForm extends Component {
     InmateManager.getOne(this.props.match.params.inmateId).then(inmate => {
       OfficerManager.getAll().then(parsedOfficers => {
         ArrestingAgencyManager.getAll().then(parsedArrestingAgencies => {
-      this.setState({
-        name: inmate.name,
-        bookingNumber: inmate.bookingNumber,
-        arrestingAgencyId: inmate.arrestingAgencyId,
-        dateIn: inmate.dateIn,
-        officerId: inmate.officerId,
-        dateOut: inmate.dateOut,
-        comments: inmate.comments,
-        billed: inmate.billed,
-        archived: false,
-        officers: parsedOfficers,
-        arrestingAgencies: parsedArrestingAgencies,
-        loadingStatus: false
-      });
+          this.setState({
+            name: inmate.name,
+            bookingNumber: inmate.bookingNumber,
+            arrestingAgencyId: inmate.arrestingAgencyId,
+            dateIn: inmate.dateIn,
+            officerId: inmate.officerId,
+            dateOut: inmate.dateOut,
+            comments: inmate.comments,
+            billed: inmate.billed,
+            archived: false,
+            officers: parsedOfficers,
+            arrestingAgencies: parsedArrestingAgencies,
+            loadingStatus: false
+          });
+        });
       });
     });
-  });
   }
 
   render() {
     return (
       <>
-      <br />
-      <br />
+        <br />
+        <br />
         <form>
-          <fieldset>
-            <div className="formgrid">
+          <fieldset className="formgrid">
+            <br />
+            <br />
+            <div>
               <label htmlFor="name">Name </label>
               <input
                 type="text"
@@ -109,7 +111,10 @@ class InmateEditForm extends Component {
                 onChange={this.handleFieldChange}
               >
                 {this.state.arrestingAgencies.map(arrestingAgency => (
-                  <option key={arrestingAgency.id.name} value={arrestingAgency.id.name}>
+                  <option
+                    key={arrestingAgency.id.name}
+                    value={arrestingAgency.id.name}
+                  >
                     {arrestingAgency.name}
                   </option>
                 ))}

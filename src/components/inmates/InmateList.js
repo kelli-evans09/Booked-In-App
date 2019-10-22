@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import InmateCard from "./InmateCard";
 import InmateManager from "../modules/InmateManager";
 
+
 class InmateList extends Component {
   //define what this component needs to render
   state = {

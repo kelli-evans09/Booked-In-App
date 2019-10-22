@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import InmateManager from "../modules/InmateManager";
 import OfficerManager from "../modules/OfficerManager";
 import ArrestingAgencyManager from "../modules/ArrestingAgencyManager";
+import "../inmates/InmateForm.css";
 
 class InmateForm extends Component {
   state = {
@@ -16,15 +17,19 @@ class InmateForm extends Component {
     archived: false,
     officers: [],
     arrestingAgencies: [],
+    inmates: [],
     loadingStatus: false
   };
 
   componentDidMount() {
     OfficerManager.getAll().then(parsedOfficers => {
       ArrestingAgencyManager.getAll().then(parsedArrestingAgencies => {
-        this.setState({
-          officers: parsedOfficers,
-          arrestingAgencies: parsedArrestingAgencies
+        InmateManager.getAll().then(parsedInmates => {
+          this.setState({
+            officers: parsedOfficers,
+            arrestingAgencies: parsedArrestingAgencies,
+            inmates: parsedInmates
+          });
         });
       });
     });
@@ -49,27 +54,35 @@ class InmateForm extends Component {
       window.alert(
         "Please input inmate name, booking number, arresting agency and intake date"
       );
-    } else {
-      this.setState({ loadingStatus: true });
-      const inmate = {
-        name: this.state.name,
-        bookingNumber: this.state.bookingNumber,
-        arrestingAgencyId: this.state.arrestingAgencyId,
-        dateIn: this.state.dateIn,
-        officerId: this.state.officerId,
-        dateOut: this.state.dateOut,
-        comments: this.state.comments,
-        billed: this.state.billed,
-        archived: false
+    } else
+      // booking number value === existing booking number from database
+      InmateManager.searchByValues(this.state.bookingNumber).then(
+        searchBookingNumbers => {
+          if (searchBookingNumbers[0] !== undefined) {
+            window.alert("That booking number already exists!");
+          } else {
+            this.setState({ loadingStatus: true });
+            const inmate = {
+              name: this.state.name,
+              bookingNumber: this.state.bookingNumber,
+              arrestingAgencyId: this.state.arrestingAgencyId,
+              dateIn: this.state.dateIn,
+              officerId: this.state.officerId,
+              dateOut: this.state.dateOut,
+              comments: this.state.comments,
+              billed: this.state.billed,
+              archived: false
 
-        //change to a number use + before "this.state"
-      };
+              //change to a number use + before "this.state"
+            };
 
-      // Create the inmate and redirect user to inmate list
-      InmateManager.post(inmate).then(() =>
-        this.props.history.push("/inmates")
+            // Create the inmate and redirect user to inmate list
+            InmateManager.post(inmate).then(() =>
+              this.props.history.push("/inmates")
+            );
+          }
+        }
       );
-    }
   };
 
   render() {
@@ -78,8 +91,10 @@ class InmateForm extends Component {
         <br />
         <br />
         <form>
-          <fieldset>
-            <div className="formgrid">
+          <fieldset className="formgrid">
+            <br />
+            <br />
+            <div>
               <label htmlFor="name">Name </label>
               <input
                 type="text"
@@ -98,6 +113,7 @@ class InmateForm extends Component {
                 onChange={this.handleFieldChange}
                 id="bookingNumber"
                 value={this.state.bookingNumber}
+                placeholder="Ex: 00-000"
               />
               <br />
               <br />

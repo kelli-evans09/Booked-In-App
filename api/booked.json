@@ -33,6 +33,18 @@
       "archived": false
     },
     {
+      "id": 10,
+      "name": "Jennifer Johnson",
+      "bookingNumber": "19-010",
+      "arrestingAgencyId": "PPD",
+      "dateIn": "2019-02-01",
+      "officerId": "",
+      "dateOut": "2019-02-15",
+      "comments": "Released per court",
+      "billed": "No",
+      "archived": false
+    },
+    {
       "id": 2,
       "name": "Joshua Joseph",
       "bookingNumber": "19-002",
@@ -129,15 +141,27 @@
       "archived": false
     },
     {
-      "id": 10,
-      "name": "Jennifer Johnson",
-      "bookingNumber": "19-010",
-      "arrestingAgencyId": "PPD",
-      "dateIn": "2019-02-01",
+      "name": "Testing sort",
+      "bookingNumber": "18-001",
+      "arrestingAgencyId": "MCSO",
+      "dateIn": "2018-01-01",
       "officerId": "",
-      "dateOut": "2019-02-15",
-      "comments": "Released per court",
-      "billed": "No",
+      "dateOut": "",
+      "comments": "",
+      "billed": "",
+      "archived": true,
+      "id": 11
+    },
+    {
+      "id": 12,
+      "name": "lee",
+      "bookingNumber": "19-011",
+      "arrestingAgencyId": "ACSO",
+      "dateIn": "2018-01-01",
+      "officerId": "",
+      "dateOut": "",
+      "comments": "",
+      "billed": "",
       "archived": false
     }
   ],

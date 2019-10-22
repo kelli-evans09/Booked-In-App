@@ -6,11 +6,13 @@ export default {
   },
 
   getAll() {
-    return fetch(`${remoteURL}/inmates`).then(result => result.json());
+    return fetch(`${remoteURL}/inmates?_sort=bookingNumber&_order=desc`).then(result => result.json());
   },
 
+  // ?_sort=date&_order=desc
+
   searchByValues(search) {
-    return fetch(`${remoteURL}/inmates?q=${search}`).then(result =>
+    return fetch(`${remoteURL}/inmates?q=${search}&_sort=bookingNumber&_order=desc`).then(result =>
       result.json()
     );
   },

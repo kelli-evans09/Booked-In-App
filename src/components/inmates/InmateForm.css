@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css?family=Turret+Road&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Cinzel&display=swap');
+
+fieldset {
+    max-width: 40em;
+    padding: 4px;
+    margin: 2em auto;
+    border: 0 none;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    border-radius: 5px;
+    background: #1f32dd;
+    color: white
+}
+
+fieldset input, fieldset button{
+    box-sizing: border-box;
+    padding: .2em .4em;
+    margin: .2em 0;
+    outline: none;
+    box-shadow: none;
+}
+
+fieldset button {
+    max-width: 9em;
+    padding: .5em;
+    margin: .3em auto;
+    background-color: black;
+    border: none;
+    color: cornsilk;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    border-radius: 2px;
+    width: 100%;
+    cursor: pointer;
+}
+
+fieldset label {
+    box-sizing: border-box;
+    user-select: none;
+    cursor: pointer;
+}
+fieldset input:focus + label {
+    color: #933;
+}
+
+fieldset .formgrid {
+    display: grid;
+    grid-template-columns: 1fr 1em 2fr;
+    grid-gap: .3em .6em;
+    grid-auto-flow: dense;
+    align-items: center;
+}
+
+fieldset input, fieldset button {
+    grid-column: 2 /4;
+    width: auto;
+    margin: 0
+}
+
+fieldset .alignRight {
+    text-align: right;
+}
+
+body,
+button,
+input,
+select,
+textarea {
+	color: black;
+    font-family: 'Cinzel' , serif;
+	font-size: 14px;
+	line-height: 1.5;
+}
+
+.section-container{
+    padding: 1.5em;
+}
+
+.section-content{
+    text-align: center;
+}
+
+.container-cards{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.card{
+    width: 25vw;
+    padding: 1em;
+    margin: 1em;
+    border: 1x solid gray;
+}
+
+.search-results-card{
+    border: 2em black
+}

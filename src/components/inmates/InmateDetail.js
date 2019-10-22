@@ -70,7 +70,7 @@ class InmateDetail extends Component {
     return (
       <div className="card">
         <div className="card-content">
-        <h1>Booking Number: {this.state.bookingNumber}</h1>
+        <h1>{this.state.bookingNumber}</h1>
           <h3>
             Name:{" "}
             <span style={{ color: "darkslategrey" }}>{this.state.name}</span>
