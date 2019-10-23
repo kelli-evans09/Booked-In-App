@@ -13,22 +13,22 @@ class InmateDetail extends Component {
     comments: "",
     billed: "",
     archived: "",
+    active: "",
     officers: [],
     arrestingAgencies: [],
     loadingStatus: true
   };
 
+  // Invoke the delete function in InmateManger and re-direct to the Inmate list.
   handleDelete = () => {
-    //invoke the delete function in InmateManger and re-direct to the Inmate list.
     this.setState({ loadingStatus: true });
     InmateManager.softDelete(this.props.inmateId).then(() =>
       this.props.history.push("/inmates")
     );
   };
 
+  // Get(id) from InmateManager and hang on to that data; put it into state
   componentDidMount() {
-    // console.log("InmateDetail: ComponentDidMount");
-    //get(id) from InmateManager and hang on to that data; put it into state
     InmateManager.getOne(this.props.inmateId).then(inmate => {
       this.setState({
         name: inmate.name,
@@ -45,6 +45,7 @@ class InmateDetail extends Component {
     });
   }
 
+  // Set state to equal the user input values from Inmate Edit Form
   updateExistingInmate = evt => {
     evt.preventDefault();
     this.setState({ loadingStatus: true });
@@ -58,7 +59,8 @@ class InmateDetail extends Component {
       dateOut: this.state.dateOut,
       comments: this.state.comments,
       billed: this.state.billed,
-      archived: false
+      archived: false,
+
     };
 
     InmateManager.update(editedInmate).then(() =>
@@ -70,7 +72,7 @@ class InmateDetail extends Component {
     return (
       <div className="card">
         <div className="card-content">
-        <h1>{this.state.bookingNumber}</h1>
+          <h1>{this.state.bookingNumber}</h1>
           <h3>
             Name:{" "}
             <span style={{ color: "darkslategrey" }}>{this.state.name}</span>
@@ -96,7 +98,13 @@ class InmateDetail extends Component {
             >
               Back
             </button>
-            <button type="button" disabled={this.state.loadingStatus} onClick={this.handleDelete}>Delete Entry</button>
+            <button
+              type="button"
+              disabled={this.state.loadingStatus}
+              onClick={this.handleDelete}
+            >
+              Delete Entry
+            </button>
           </div>
         </div>
       </div>

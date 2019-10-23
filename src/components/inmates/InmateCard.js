@@ -6,7 +6,7 @@ class InmateCard extends Component {
   render() {
     return (
       <div className="card">
-          {/* <h1>Inmate Card</h1> */}
+          {/* Card that displays for each inmate in the database */}
         <div className="card-content">
             <h1>{this.props.inmateProp.bookingNumber}</h1>
           <h3>

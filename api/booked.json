@@ -30,6 +30,7 @@
       "dateOut": "2019-01-10",
       "comments": "Released per court",
       "billed": "Yes",
+      "active": false,
       "archived": false
     },
     {
@@ -38,7 +39,7 @@
       "bookingNumber": "19-010",
       "arrestingAgencyId": "PPD",
       "dateIn": "2019-02-01",
-      "officerId": "",
+      "officerId": "McCourt",
       "dateOut": "2019-02-15",
       "comments": "Released per court",
       "billed": "No",
@@ -54,6 +55,7 @@
       "dateOut": "2019-01-14",
       "comments": "Bond paid",
       "billed": "Yes",
+      "active": false,
       "archived": false
     },
     {
@@ -66,6 +68,7 @@
       "dateOut": "2019-01-15",
       "comments": "Bond paid",
       "billed": "No",
+      "active": false,
       "archived": false
     },
     {
@@ -78,6 +81,7 @@
       "dateOut": "2019-01-19",
       "comments": "Released per court",
       "billed": "No",
+      "active": false,
       "archived": false
     },
     {
@@ -86,10 +90,11 @@
       "bookingNumber": "19-005",
       "arrestingAgencyId": "MPD",
       "dateIn": "2019-01-05",
-      "officerId": "",
-      "dateOut": "",
-      "comments": "",
-      "billed": "",
+      "officerId": "Wood",
+      "dateOut": "2019-05-05",
+      "comments": "Released per court",
+      "billed": "Yes",
+      "active": false,
       "archived": false
     },
     {
@@ -102,18 +107,20 @@
       "dateOut": "2019-01-17",
       "comments": "Released per MP-05",
       "billed": "No",
+      "active": false,
       "archived": false
     },
     {
       "id": 7,
       "name": "Caleb Meadows",
       "bookingNumber": "19-007",
-      "arrestingAgencyId": "MPD",
+      "arrestingAgencyId": "MCSO",
       "dateIn": "2019-01-09",
       "officerId": "Wood",
       "dateOut": "2019-01-19",
       "comments": "Released from court",
       "billed": "No",
+      "active": false,
       "archived": false
     },
     {
@@ -126,6 +133,7 @@
       "dateOut": "2019-01-20",
       "comments": "Released to 53-05",
       "billed": "No",
+      "active": false,
       "archived": false
     },
     {
@@ -138,30 +146,23 @@
       "dateOut": "2019-01-18",
       "comments": "Released per court",
       "billed": "No",
+      "active": false,
       "archived": false
     },
     {
-      "name": "Testing sort",
-      "bookingNumber": "18-001",
-      "arrestingAgencyId": "MCSO",
-      "dateIn": "2018-01-01",
-      "officerId": "",
-      "dateOut": "",
-      "comments": "",
-      "billed": "",
-      "archived": true,
-      "id": 11
+      "id": 11,
+      "name": "Test 1",
+      "bookingNumber": "19-011",
+      "arrestingAgencyId": "PPD",
+      "dateIn": "2019-10-10",
+      "archived": false
     },
     {
       "id": 12,
-      "name": "lee",
-      "bookingNumber": "19-011",
-      "arrestingAgencyId": "ACSO",
-      "dateIn": "2018-01-01",
-      "officerId": "",
-      "dateOut": "",
-      "comments": "",
-      "billed": "",
+      "name": "sdfgsfgs",
+      "bookingNumber": "20-050",
+      "arrestingAgencyId": "MCSO",
+      "dateIn": "2019-01-01",
       "archived": false
     }
   ],

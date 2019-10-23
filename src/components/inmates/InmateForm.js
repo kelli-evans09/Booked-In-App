@@ -10,11 +10,8 @@ class InmateForm extends Component {
     bookingNumber: "",
     arrestingAgencyId: "",
     dateIn: "",
-    officerId: "",
-    dateOut: "",
-    comments: "",
-    billed: "",
     archived: false,
+    active: true,
     officers: [],
     arrestingAgencies: [],
     inmates: [],
@@ -40,6 +37,7 @@ class InmateForm extends Component {
     stateToChange[evt.target.id] = evt.target.value;
     this.setState(stateToChange);
   };
+
 
   /*  Local method for validation, set loadingStatus, create inmate object, invoke the InmateManager post method, and redirect to the full inmate list
    */
@@ -67,11 +65,8 @@ class InmateForm extends Component {
               bookingNumber: this.state.bookingNumber,
               arrestingAgencyId: this.state.arrestingAgencyId,
               dateIn: this.state.dateIn,
-              officerId: this.state.officerId,
-              dateOut: this.state.dateOut,
-              comments: this.state.comments,
-              billed: this.state.billed,
-              archived: false
+              archived: false,
+              active: true
 
               //change to a number use + before "this.state"
             };
@@ -117,7 +112,6 @@ class InmateForm extends Component {
               />
               <br />
               <br />
-              {/* This will change to a <select> tab */}
               <label htmlFor="arrestingAgencyId">Arresting Agency </label>
               <select
                 className="form-control"
@@ -143,53 +137,6 @@ class InmateForm extends Component {
                 onChange={this.handleFieldChange}
                 id="dateIn"
                 value={this.state.dateIn}
-              />
-              <br />
-              <br />
-              {/* Officer ID dropdown menu goes here */}
-              <label htmlFor="officerId">Releasing Officer </label>
-              <select
-                className="form-control"
-                id="officerId"
-                value={this.state.officerId}
-                onChange={this.handleFieldChange}
-              >
-                {this.state.officers.map(officer => (
-                  <option key={officer.id} value={officer.id.name}>
-                    {officer.name}
-                  </option>
-                ))}
-              </select>
-              <br />
-              <br />
-              <label htmlFor="dateOut">Release Date </label>
-              <input
-                type="date"
-                required
-                onChange={this.handleFieldChange}
-                id="dateOut"
-                value={this.state.dateOut}
-              />
-              <br />
-              <br />
-              <label htmlFor="comments">Release Comments </label>
-              <input
-                type="text"
-                required
-                onChange={this.handleFieldChange}
-                id="comments"
-                value={this.state.comments}
-              />
-              <br />
-              <br />
-              {/* This will change to a <select> tab */}
-              <label htmlFor="billed">Billed </label>
-              <input
-                type="text"
-                required
-                onChange={this.handleFieldChange}
-                id="billed"
-                value={this.state.billed}
               />
               <br />
               <br />

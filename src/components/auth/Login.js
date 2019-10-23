@@ -15,6 +15,7 @@ class Login extends Component {
     stateToChange[evt.target.id] = evt.target.value;
     this.setState(stateToChange);
   };
+
   //Update Checkbox
   handleInputChange = event => {
     const target = event.target;
@@ -24,6 +25,7 @@ class Login extends Component {
       remember: value
     });
   };
+  
   //handle Login function to retrieve username and password value and verify if they are in the database.
   handleLogin = e => {
     e.preventDefault();

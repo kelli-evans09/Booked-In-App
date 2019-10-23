@@ -19,11 +19,10 @@ export default {
 
   softDelete(id) {
     return fetch(`${remoteURL}/inmates/${id}`, {
-      method: "PATCH",
+      method: "DELETE",
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({ archived: true })
     }).then(result => result.json());
   },
 

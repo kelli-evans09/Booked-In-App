@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import InmateCard from "./InmateCard";
 import InmateManager from "../modules/InmateManager";
 
-
 class InmateList extends Component {
   //define what this component needs to render
   state = {
@@ -21,16 +20,15 @@ class InmateList extends Component {
 
   editInmate = id => {
     InmateManager.update(id)
-    .then(InmateManager.getAll)
-    .then(parsedInmates => {
-      this.setState({
-        inmates:parsedInmates
+      .then(InmateManager.getAll)
+      .then(parsedInmates => {
+        this.setState({
+          inmates: parsedInmates
+        });
       });
-    });
-  }
+  };
 
   componentDidMount() {
-    // console.log("INMATE LIST: ComponentDidMount");
     //getAll from InmateManager and hang on to that data; put it in state
     InmateManager.getAll().then(inmatesFromDatabase => {
       this.setState({
@@ -40,21 +38,24 @@ class InmateList extends Component {
   }
 
   render() {
-    // console.log("INMATE LIST: Render");
-
     return (
       <>
-        <div className="container-cards">
-          {this.state.inmates.map(singleInmate =>
-            !singleInmate.archived ? (
+        {/* <div className="container-cards"> */}
+        {this.state.inmates.map(singleInmate =>
+          !singleInmate.archived ? (
+            <div
+              key={singleInmate.id}
+              className={
+                singleInmate.dateOut === undefined ? "card stringGreen" : "card stringRed"
+              }
+            >
               <InmateCard
                 editInmateProp={this.editInmate}
-                key={singleInmate.id}
                 inmateProp={singleInmate}
               />
-            ) : null
-          )}
-        </div>
+            </div>
+          ) : null
+        )}
       </>
     );
   }

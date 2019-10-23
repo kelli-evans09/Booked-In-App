@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import './Home.css'
 import MPD from "./MPD.jpg"
 
+// Home screen
 class Home extends Component {
   render() {
     return (
