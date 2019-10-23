@@ -98,3 +98,11 @@ textarea {
 .search-results-card{
     border: 2em black
 }
+
+.stringGreen{
+    background-color: green
+ }
+ 
+ .stringRed{
+    background-color: red
+ }

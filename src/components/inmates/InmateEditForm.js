@@ -119,13 +119,6 @@ class InmateEditForm extends Component {
                   </option>
                 ))}
               </select>
-              {/* <input
-                type="text"
-                required
-                onChange={this.handleFieldChange}
-                id="arrestingAgencyId"
-                value={this.state.arrestingAgencyId}
-              /> */}
               <br />
               <br />
               <label htmlFor="dateIn">Intake Date </label>
@@ -140,13 +133,6 @@ class InmateEditForm extends Component {
               <br />
               {/* Officer ID dropdown menu goes here*/}
               <label htmlFor="officerId">Releasing Officer </label>
-              {/* <input
-                type="text"
-                required
-                onChange={this.handleFieldChange}
-                id="officerId"
-                value={this.state.officerId}
-              /> */}
               <select
                 className="form-control"
                 id="officerId"
@@ -183,13 +169,10 @@ class InmateEditForm extends Component {
               <br />
               {/* This will change to a <select> tab */}
               <label htmlFor="billed">Billed </label>
-              <input
-                type="text"
-                required
-                onChange={this.handleFieldChange}
-                id="billed"
-                value={this.state.billed}
-              />
+<select>
+<option value={this.state.billed}>Yes</option>
+<option value={this.state.billed}>No</option>
+</select>
               <br />
               <br />
             </div>

@@ -68,7 +68,8 @@ class ApplicationViews extends Component {
           path="/inmates/search"
           render={props => {
             return this.isAuthenticated() ? (
-              <InmateSearchForm {...props} />
+              <InmateSearchForm {...props}
+              inmateId={parseInt(props.match.params.inmateId)} />
             ) : (
               <Redirect to="/login" />
             );

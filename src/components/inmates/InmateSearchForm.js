@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 // import InmateCard from "./InmateCard";
 import InmateManager from "../modules/InmateManager";
+import { Link } from "react-router-dom";
 
 class InmateSearchForm extends Component {
   /*
@@ -25,7 +26,8 @@ class InmateSearchForm extends Component {
   searchByValues = evt => {
     evt.preventDefault();
     this.setState({ loadingStatus: true });
-    const search = this.state.searchValue;
+    const search = this.state.searchValue
+    // .split("-")[0];
 
     InmateManager.searchByValues(search).then(returnedSearch => {
       this.setState({
@@ -34,10 +36,6 @@ class InmateSearchForm extends Component {
       });
     });
   };
-
-  //   componentDidMount() {
-  //       InmateManager.
-  //   }
 
   render() {
     return (
@@ -110,7 +108,7 @@ class InmateSearchForm extends Component {
                 disabled={this.state.loadingStatus}
                 onClick={this.searchByValues}
               >
-                Submit
+                Search
               </button>
             </div>
             <br />
@@ -130,6 +128,12 @@ class InmateSearchForm extends Component {
                   <p>Date Out: {results.dateOut}</p>
                   <p>Comments: {results.comments}</p>
                   <p>Billed: {results.billed}</p>
+
+                  <Link to={`/inmates/${results.id}/edit`}>
+                    <button>Edit</button>
+                  </Link>
+                  <br />
+                  <br />
                   <br />
                 </div>
               ) : null
