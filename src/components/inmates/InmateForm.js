@@ -8,13 +8,13 @@ class InmateForm extends Component {
   state = {
     name: "",
     bookingNumber: "",
-    arrestingAgencyId: "",
+    arrestingAgencyId: 1,
     dateIn: "",
     archived: false,
-    active: true,
-    officers: [],
-    arrestingAgencies: [],
+    officerId: 1,
     inmates: [],
+    arrestingAgencies: [],
+    officers: [],
     loadingStatus: false
   };
 
@@ -63,10 +63,10 @@ class InmateForm extends Component {
             const inmate = {
               name: this.state.name,
               bookingNumber: this.state.bookingNumber,
-              arrestingAgencyId: this.state.arrestingAgencyId,
+              arrestingAgencyId: +this.state.arrestingAgencyId,
               dateIn: this.state.dateIn,
+              officerId: 4,
               archived: false,
-              active: true
 
               //change to a number use + before "this.state"
             };
@@ -121,8 +121,8 @@ class InmateForm extends Component {
               >
                 {this.state.arrestingAgencies.map(arrestingAgency => (
                   <option
-                    key={arrestingAgency.id.name}
-                    value={arrestingAgency.id.name}
+                    key={arrestingAgency.id}
+                    value={arrestingAgency.id}
                   >
                     {arrestingAgency.name}
                   </option>
