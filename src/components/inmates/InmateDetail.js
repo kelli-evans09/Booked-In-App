@@ -1,28 +1,26 @@
 import React, { Component } from "react";
 import InmateManager from "../modules/InmateManager";
+import OfficerManager from "../modules/OfficerManager";
 // import { Link } from "react-router-dom";
 
 class InmateDetail extends Component {
   state = {
     name: "",
     bookingNumber: "",
-    arrestingAgencyId: "",
+    arrestingAgencyId: 1,
     dateIn: "",
-    officerId: "",
+    officerId: null,
     dateOut: "",
     comments: "",
     billed: "",
     archived: "",
-    active: "",
-    officers: [],
-    arrestingAgencies: [],
     loadingStatus: true
   };
 
   // Invoke the delete function in InmateManger and re-direct to the Inmate list.
   handleDelete = () => {
     this.setState({ loadingStatus: true });
-    InmateManager.softDelete(this.props.inmateId).then(() =>
+    InmateManager.delete(this.props.inmateId).then(() =>
       this.props.history.push("/inmates")
     );
   };
@@ -30,12 +28,18 @@ class InmateDetail extends Component {
   // Get(id) from InmateManager and hang on to that data; put it into state
   componentDidMount() {
     InmateManager.getOne(this.props.inmateId).then(inmate => {
+      if (inmate.officerId !== null) {
+        OfficerManager.getOne(inmate.officerId).then(officer => {
+          this.setState({
+            officer: officer.name
+          });
+        });
+      }
       this.setState({
         name: inmate.name,
         bookingNumber: inmate.bookingNumber,
-        arrestingAgencyId: inmate.arrestingAgencyId,
+        arrestingAgency: inmate.arrestingAgency.name,
         dateIn: inmate.dateIn,
-        officerId: inmate.officerId,
         dateOut: inmate.dateOut,
         comments: inmate.comments,
         billed: inmate.billed,
@@ -53,14 +57,13 @@ class InmateDetail extends Component {
       id: this.props.match.params.inmateId,
       name: this.state.name,
       bookingNumber: this.state.bookingNumber,
-      arrestingAgencyId: this.state.arrestingAgencyId,
+      arrestingAgencyId: +this.state.arrestingAgencyId,
       dateIn: this.state.dateIn,
-      officerId: this.state.officerId,
+      officerId: +this.state.officerId,
       dateOut: this.state.dateOut,
       comments: this.state.comments,
       billed: this.state.billed,
-      archived: false,
-
+      archived: false
     };
 
     InmateManager.update(editedInmate).then(() =>
@@ -78,17 +81,17 @@ class InmateDetail extends Component {
             <span style={{ color: "darkslategrey" }}>{this.state.name}</span>
           </h3>
 
-          <h3>Arresting Agency: {this.state.arrestingAgencyId}</h3>
+          <h3>Arresting Agency: {this.state.arrestingAgency}</h3>
 
           <h3>Date In: {this.state.dateIn}</h3>
 
-          <h3>Releasing Officer: {this.state.officerId}</h3>
+          <h3>Releasing Officer: {this.state.officer}</h3>
 
           <h3>Date Out: {this.state.dateOut}</h3>
 
           <h3>Comments: {this.state.comments}</h3>
 
-          <h3>Billed: {this.state.billed}</h3>
+          <h3>Billed: {this.state.billed === true ? "Yes" : "No"}</h3>
 
           <div className="alignRight">
             <button

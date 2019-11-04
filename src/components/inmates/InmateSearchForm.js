@@ -37,6 +37,25 @@ class InmateSearchForm extends Component {
     });
   };
 
+
+  //   if (this.state.officer !== undefined || null) {
+  //     InmateManager.searchByValuesActive(search)
+  //     .then(returnedSearch => {
+  //       this.setState({
+  //         returnedInmates: returnedSearch,
+  //         loadingStatus: false
+  //       });
+  //     });
+  //   } else {
+  //     InmateManager.searchByValuesInactive(search)
+  //   .then(returnedSearch => {
+  //     this.setState({
+  //       returnedInmates: returnedSearch,
+  //       loadingStatus: false
+  //     });
+  //   });
+  // };
+
   render() {
     return (
       <>
@@ -58,14 +77,14 @@ class InmateSearchForm extends Component {
             </h4>
           </div>
           <br />
-          <div>
+          {/* <div>
             <h2>Arresting Agency Search:</h2>
             <h4>
               Searches by Arresting Agency produce a list of those offenders who
               are being held or were held for that selected agency.
             </h4>
           </div>
-          <br />
+          <br /> */}
           <div>
             <h2>Booking Number Search:</h2>
             <h4>
@@ -122,9 +141,9 @@ class InmateSearchForm extends Component {
                 >
                   <h2>{results.bookingNumber}</h2>
                   <p>Name: {results.name}</p>
-                  <p>Arresting Agency: {results.arrestingAgencyId}</p>
+                  <p>Arresting Agency: {results.arrestingAgency.name}</p>
                   <p>Date In: {results.dateIn}</p>
-                  <p>Releasing Officer: {results.officerId}</p>
+                  <p>Releasing Officer: {results.officer.name}</p>
                   <p>Date Out: {results.dateOut}</p>
                   <p>Comments: {results.comments}</p>
                   <p>Billed: {results.billed}</p>

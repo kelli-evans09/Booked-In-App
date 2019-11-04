@@ -9,15 +9,15 @@ class InmateEditForm extends Component {
   state = {
     name: "",
     bookingNumber: "",
-    arrestingAgencyId: "",
+    arrestingAgencyId: 1,
     dateIn: "",
-    officerId: "",
+    officerId: 1,
     dateOut: "",
     comments: "",
     billed: "",
     archived: "",
-    officers: [],
     arrestingAgencies: [],
+    officers: [],
     loadingStatus: true
   };
 
@@ -34,12 +34,12 @@ class InmateEditForm extends Component {
       id: this.props.match.params.inmateId,
       name: this.state.name,
       bookingNumber: this.state.bookingNumber,
-      arrestingAgencyId: this.state.arrestingAgencyId,
+      arrestingAgencyId: +this.state.arrestingAgencyId,
       dateIn: this.state.dateIn,
-      officerId: this.state.officerId,
+      officerId: +this.state.officerId,
       dateOut: this.state.dateOut,
       comments: this.state.comments,
-      billed: this.state.billed,
+      billed: this.state.billed === "true" ? true: false,
       archived: false
     };
 
@@ -111,10 +111,7 @@ class InmateEditForm extends Component {
                 onChange={this.handleFieldChange}
               >
                 {this.state.arrestingAgencies.map(arrestingAgency => (
-                  <option
-                    key={arrestingAgency.id.name}
-                    value={arrestingAgency.id.name}
-                  >
+                  <option key={arrestingAgency.id} value={arrestingAgency.id}>
                     {arrestingAgency.name}
                   </option>
                 ))}
@@ -140,7 +137,7 @@ class InmateEditForm extends Component {
                 onChange={this.handleFieldChange}
               >
                 {this.state.officers.map(officer => (
-                  <option key={officer.id.name} value={officer.id.name}>
+                  <option key={officer.id} value={officer.id}>
                     {officer.name}
                   </option>
                 ))}
@@ -169,10 +166,17 @@ class InmateEditForm extends Component {
               <br />
               {/* This will change to a <select> tab */}
               <label htmlFor="billed">Billed </label>
-<select>
-<option value={this.state.billed}>Yes</option>
-<option value={this.state.billed}>No</option>
-</select>
+              <select
+                className="form-control"
+                id="billed"
+                required
+                onChange={this.handleFieldChange}
+                value={this.state.billed}
+
+              >
+                <option value="false">No</option>
+                <option value="true">Yes</option>
+              </select>
               <br />
               <br />
             </div>

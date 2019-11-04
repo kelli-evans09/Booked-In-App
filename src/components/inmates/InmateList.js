@@ -9,7 +9,7 @@ class InmateList extends Component {
   };
 
   deleteInmate = id => {
-    InmateManager.softDelete(id)
+    InmateManager.delete(id)
       .then(InmateManager.getAll)
       .then(parsedInmates => {
         this.setState({
